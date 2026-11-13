@@ -10,7 +10,7 @@ export function Hero() {
           alt="Cô dâu chú rể trong bộ ảnh cưới studio của MARRY WEDDING"
           fill
           priority
-          className="object-cover object-top"
+          className="object-cover object-[center_18%]"
         />
       </div>
 
