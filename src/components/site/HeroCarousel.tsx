@@ -48,7 +48,11 @@ const SLIDES: Slide[] = [
   {
     src: "/images/real/moment-04.jpg",
     alt: "Cô dâu chú rể dạo bước trong khu vườn",
-    position: "object-bottom",
+    // Balanced center crop — the couple is small in this wide garden
+    // scene, so an even top/bottom crop keeps the full surrounding
+    // scenery (architecture, gazebo, bushes) in frame on both sides
+    // rather than pushing them right up against the bottom edge.
+    position: "object-center",
   },
 ];
 
