@@ -1,7 +1,15 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 
-const STATIC_ROUTES = ["/", "/ve-chung-toi", "/dich-vu", "/bo-suu-tap", "/blog", "/lien-he"];
+const STATIC_ROUTES = [
+  "/",
+  "/ve-chung-toi",
+  "/dich-vu",
+  "/san-pham",
+  "/bo-suu-tap",
+  "/blog",
+  "/lien-he",
+];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";

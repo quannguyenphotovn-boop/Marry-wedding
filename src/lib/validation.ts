@@ -101,3 +101,28 @@ export const GALLERY_CATEGORY_LABELS: Record<string, string> = {
   destination: "Destination",
   film: "Phóng sự cưới",
 };
+
+export const productSchema = z.object({
+  name: z.string().trim().min(2).max(160),
+  slug: z
+    .string()
+    .trim()
+    .min(2)
+    .max(160)
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug chỉ gồm chữ thường, số và gạch ngang"),
+  category: z.enum(["album", "in-anh", "khung-anh", "usb-qua-tang", "khac"]),
+  description: z.string().trim().max(1000).optional().or(z.literal("")),
+  priceLabel: z.string().trim().min(1).max(80),
+  coverImageUrl: z.string().trim().min(1).max(500),
+  isFeatured: z.coerce.boolean().optional(),
+  isPublished: z.coerce.boolean().optional(),
+  sortOrder: z.coerce.number().int().optional(),
+});
+
+export const PRODUCT_CATEGORY_LABELS: Record<string, string> = {
+  album: "Album ảnh cưới",
+  "in-anh": "Ảnh in cao cấp",
+  "khung-anh": "Khung ảnh & tranh treo",
+  "usb-qua-tang": "USB & quà tặng",
+  khac: "Sản phẩm khác",
+};

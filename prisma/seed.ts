@@ -11,6 +11,10 @@ const PLACEHOLDER = {
   blog1: "/images/placeholder/blog-01.svg",
   blog2: "/images/placeholder/blog-02.svg",
   blog3: "/images/placeholder/blog-03.svg",
+  productAlbum: "/images/placeholder/product-album.svg",
+  productFrame: "/images/placeholder/product-frame.svg",
+  productUsb: "/images/placeholder/product-usb.svg",
+  productPrint: "/images/placeholder/product-print.svg",
 };
 
 async function main() {
@@ -87,6 +91,58 @@ async function main() {
     });
   }
   console.log(`Seeded ${packages.length} pricing packages`);
+
+  const products = [
+    {
+      name: "Album Ảnh Cưới Da Cao Cấp",
+      slug: "album-anh-cuoi-da-cao-cap",
+      category: "album",
+      description: "Album bọc da thật, in ảnh phủ UV chống phai màu, thiết kế theo yêu cầu.",
+      priceLabel: "Từ 1.500.000đ",
+      coverImageUrl: PLACEHOLDER.productAlbum,
+      isFeatured: true,
+      sortOrder: 1,
+    },
+    {
+      name: "Bộ Ảnh In Cao Cấp Khổ Lớn",
+      slug: "bo-anh-in-cao-cap-kho-lon",
+      category: "in-anh",
+      description: "In ảnh trên giấy cao cấp, màu sắc chân thực, nhiều kích thước lựa chọn.",
+      priceLabel: "Từ 800.000đ",
+      coverImageUrl: PLACEHOLDER.productPrint,
+      isFeatured: false,
+      sortOrder: 2,
+    },
+    {
+      name: "Khung Ảnh Gỗ Treo Tường",
+      slug: "khung-anh-go-treo-tuong",
+      category: "khung-anh",
+      description: "Khung gỗ tự nhiên cao cấp, phù hợp trưng bày ảnh cưới trong không gian sống.",
+      priceLabel: "Từ 450.000đ",
+      coverImageUrl: PLACEHOLDER.productFrame,
+      isFeatured: false,
+      sortOrder: 3,
+    },
+    {
+      name: "USB Gỗ Khắc Tên & Hộp Quà",
+      slug: "usb-go-khac-ten-hop-qua",
+      category: "usb-qua-tang",
+      description: "USB gỗ khắc tên cặp đôi kèm hộp quà sang trọng, lưu trữ toàn bộ ảnh/video gốc.",
+      priceLabel: "Từ 350.000đ",
+      coverImageUrl: PLACEHOLDER.productUsb,
+      isFeatured: true,
+      sortOrder: 4,
+    },
+  ];
+
+  for (const product of products) {
+    await prisma.product.upsert({
+      where: { slug: product.slug },
+      update: product,
+      create: product,
+    });
+  }
+  console.log(`Seeded ${products.length} products`);
 
   const albums = [
     {

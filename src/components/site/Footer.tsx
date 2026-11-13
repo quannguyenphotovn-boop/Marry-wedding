@@ -41,6 +41,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/san-pham" className="hover:text-gold-400">
+                Sản phẩm
+              </Link>
+            </li>
+            <li>
               <Link href="/bo-suu-tap" className="hover:text-gold-400">
                 Bộ sưu tập ảnh
               </Link>

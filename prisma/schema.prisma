@@ -81,6 +81,21 @@ model PricingPackage {
   updatedAt   DateTime @updatedAt
 }
 
+model Product {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  category      String // one of: album | in-anh | khung-anh | usb-qua-tang | khac
+  description   String?
+  priceLabel    String // e.g. "Từ 1.200.000đ"
+  coverImageUrl String
+  isFeatured    Boolean  @default(false)
+  isPublished   Boolean  @default(true)
+  sortOrder     Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
 model Testimonial {
   id          String    @id @default(cuid())
   coupleName  String

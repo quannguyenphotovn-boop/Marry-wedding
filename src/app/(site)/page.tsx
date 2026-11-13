@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { Hero } from "@/components/site/Hero";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { PackageCard } from "@/components/site/PackageCard";
+import { ProductCard } from "@/components/site/ProductCard";
 import { AlbumCard } from "@/components/site/AlbumCard";
 import { TestimonialCard } from "@/components/site/TestimonialCard";
 import { CtaBanner } from "@/components/site/CtaBanner";
@@ -11,8 +12,13 @@ import { LinkButton } from "@/components/ui/Button";
 export const revalidate = 3600;
 
 export default async function HomePage() {
-  const [packages, albums, testimonials] = await Promise.all([
+  const [packages, products, albums, testimonials] = await Promise.all([
     prisma.pricingPackage.findMany({
+      where: { isPublished: true },
+      orderBy: { sortOrder: "asc" },
+      take: 3,
+    }),
+    prisma.product.findMany({
       where: { isPublished: true },
       orderBy: { sortOrder: "asc" },
       take: 3,
@@ -81,6 +87,26 @@ export default async function HomePage() {
       <section className="py-20 md:py-28">
         <Container>
           <SectionHeading
+            kicker="Sản phẩm"
+            title="Sản phẩm lưu niệm cao cấp"
+            description="Hoàn thiện câu chuyện tình yêu của bạn với album, ảnh in và quà tặng được chế tác tinh xảo."
+          />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <LinkButton href="/san-pham" variant="outline">
+              Xem tất cả sản phẩm
+            </LinkButton>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20 md:py-28 bg-ivory-100">
+        <Container>
+          <SectionHeading
             kicker="Bộ sưu tập"
             title="Những khoảnh khắc đã lưu giữ"
             description="Một vài album nổi bật từ các cặp đôi đã tin tưởng MARRY WEDDING."
@@ -98,7 +124,7 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20 md:py-28 bg-ivory-100">
+      <section className="py-20 md:py-28">
         <Container>
           <SectionHeading
             kicker="Cảm nhận khách hàng"

@@ -25,6 +25,31 @@ const VALUES = [
   },
 ];
 
+const STATS = [
+  { value: "500+", label: "Cặp đôi đã đồng hành" },
+  { value: "10+", label: "Năm kinh nghiệm" },
+  { value: "1.200+", label: "Album đã giao" },
+  { value: "15+", label: "Nhiếp ảnh gia & đạo diễn hình ảnh" },
+];
+
+const MILESTONES = [
+  {
+    year: "Khởi đầu",
+    title: "Thành lập MARRY WEDDING",
+    desc: "Bắt đầu từ một studio nhỏ tại Bắc Ninh với khát vọng lưu giữ những khoảnh khắc cưới chân thật và đẹp nhất.",
+  },
+  {
+    year: "Phát triển",
+    title: "Mở rộng dịch vụ & sản phẩm",
+    desc: "Bổ sung dịch vụ phóng sự cưới, destination wedding và dòng sản phẩm album, khung ảnh, quà tặng cao cấp.",
+  },
+  {
+    year: "Hiện tại",
+    title: "Thương hiệu được tin tưởng",
+    desc: "Trở thành lựa chọn của hàng trăm cặp đôi mỗi năm, không ngừng nâng cao chất lượng hình ảnh và trải nghiệm khách hàng.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -61,6 +86,19 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <section className="py-14 bg-charcoal-900">
+        <Container>
+          <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+            {STATS.map((s) => (
+              <div key={s.label}>
+                <p className="font-serif text-3xl text-gold-400 md:text-4xl">{s.value}</p>
+                <p className="mt-2 text-xs uppercase tracking-wide text-ivory-200">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <section className="py-16 md:py-24 bg-ivory-100">
         <Container>
           <SectionHeading kicker="Giá trị cốt lõi" title="Điều làm nên sự khác biệt của MARRY WEDDING" />
@@ -69,6 +107,29 @@ export default function AboutPage() {
               <div key={v.title} className="rounded-xl border border-gold-100 bg-ivory-50 p-8 text-center">
                 <h3 className="font-serif text-xl text-charcoal-900">{v.title}</h3>
                 <p className="mt-3 text-sm text-charcoal-500 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <Container>
+          <SectionHeading
+            kicker="Hành trình thương hiệu"
+            title="Câu chuyện của MARRY WEDDING"
+            description="Từ một studio nhỏ đến thương hiệu chụp ảnh cưới cao cấp được nhiều cặp đôi lựa chọn."
+          />
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            {MILESTONES.map((m, idx) => (
+              <div key={m.title} className="relative pl-6">
+                <span className="absolute left-0 top-1 h-3 w-3 rounded-full bg-gold-400" aria-hidden="true" />
+                {idx < MILESTONES.length - 1 && (
+                  <span className="absolute left-[5px] top-5 hidden h-[calc(100%-1rem)] w-px bg-gold-200 md:block" aria-hidden="true" />
+                )}
+                <span className="section-kicker">{m.year}</span>
+                <h3 className="mt-2 font-serif text-xl text-charcoal-900">{m.title}</h3>
+                <p className="mt-2 text-sm text-charcoal-500 leading-relaxed">{m.desc}</p>
               </div>
             ))}
           </div>

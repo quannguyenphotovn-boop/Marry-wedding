@@ -6,6 +6,7 @@ const NAV = [
   { href: "/admin", label: "Tổng quan" },
   { href: "/admin/leads", label: "Khách hàng đặt lịch" },
   { href: "/admin/gallery", label: "Bộ sưu tập ảnh" },
+  { href: "/admin/products", label: "Sản phẩm" },
   { href: "/admin/blog", label: "Blog" },
   { href: "/admin/pricing", label: "Bảng giá" },
   { href: "/admin/testimonials", label: "Đánh giá khách hàng" },

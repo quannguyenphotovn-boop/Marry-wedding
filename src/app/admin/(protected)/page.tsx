@@ -2,10 +2,11 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
 export default async function AdminDashboardPage() {
-  const [newLeads, totalLeads, albums, posts, packages, testimonials] = await Promise.all([
+  const [newLeads, totalLeads, albums, products, posts, packages, testimonials] = await Promise.all([
     prisma.bookingLead.count({ where: { status: "new" } }),
     prisma.bookingLead.count(),
     prisma.galleryAlbum.count(),
+    prisma.product.count(),
     prisma.blogPost.count(),
     prisma.pricingPackage.count(),
     prisma.testimonial.count(),
@@ -15,6 +16,7 @@ export default async function AdminDashboardPage() {
     { label: "Lead mới", value: newLeads, href: "/admin/leads", highlight: true },
     { label: "Tổng lead", value: totalLeads, href: "/admin/leads" },
     { label: "Album ảnh", value: albums, href: "/admin/gallery" },
+    { label: "Sản phẩm", value: products, href: "/admin/products" },
     { label: "Bài viết blog", value: posts, href: "/admin/blog" },
     { label: "Gói dịch vụ", value: packages, href: "/admin/pricing" },
     { label: "Đánh giá", value: testimonials, href: "/admin/testimonials" },

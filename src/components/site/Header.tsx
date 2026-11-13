@@ -7,6 +7,7 @@ import { WordmarkLogo } from "./WordmarkLogo";
 const NAV_LINKS = [
   { href: "/ve-chung-toi", label: "Giới thiệu" },
   { href: "/dich-vu", label: "Dịch vụ & Bảng giá" },
+  { href: "/san-pham", label: "Sản phẩm" },
   { href: "/bo-suu-tap", label: "Bộ sưu tập" },
   { href: "/blog", label: "Blog" },
   { href: "/lien-he", label: "Liên hệ" },
