@@ -19,13 +19,13 @@ export function Footer() {
             <li>Số 255D Nguyễn Gia Thiều, TP. Bắc Ninh</li>
             <li>
               Hotline:{" "}
-              <a href="tel:0826888198" className="hover:text-gold-400">
+              <a href="tel:0826888198" className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-gold-400 active:translate-x-1 active:text-gold-400">
                 0826 888 198
               </a>
             </li>
             <li>
               Email:{" "}
-              <a href="mailto:marrywedding95@gmail.com" className="hover:text-gold-400">
+              <a href="mailto:marrywedding95@gmail.com" className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-gold-400 active:translate-x-1 active:text-gold-400">
                 marrywedding95@gmail.com
               </a>
             </li>
@@ -36,27 +36,27 @@ export function Footer() {
           <h3 className="section-kicker">Khám phá</h3>
           <ul className="mt-4 space-y-2 text-sm text-ivory-200">
             <li>
-              <Link href="/dich-vu" className="hover:text-gold-400">
+              <Link href="/dich-vu" className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-gold-400 active:translate-x-1 active:text-gold-400">
                 Dịch vụ &amp; Bảng giá
               </Link>
             </li>
             <li>
-              <Link href="/san-pham" className="hover:text-gold-400">
+              <Link href="/san-pham" className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-gold-400 active:translate-x-1 active:text-gold-400">
                 Sản phẩm
               </Link>
             </li>
             <li>
-              <Link href="/bo-suu-tap" className="hover:text-gold-400">
+              <Link href="/bo-suu-tap" className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-gold-400 active:translate-x-1 active:text-gold-400">
                 Bộ sưu tập ảnh
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="hover:text-gold-400">
+              <Link href="/blog" className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-gold-400 active:translate-x-1 active:text-gold-400">
                 Blog
               </Link>
             </li>
             <li>
-              <Link href="/lien-he" className="hover:text-gold-400">
+              <Link href="/lien-he" className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-gold-400 active:translate-x-1 active:text-gold-400">
                 Đặt lịch tư vấn
               </Link>
             </li>

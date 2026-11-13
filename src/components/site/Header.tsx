@@ -26,14 +26,14 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm uppercase tracking-wide text-charcoal-700 hover:text-gold-500 transition-colors"
+              className="relative text-sm uppercase tracking-wide text-charcoal-700 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold-400 after:transition-all after:duration-300 hover:text-gold-500 hover:after:w-full active:text-gold-500 active:after:w-full"
             >
               {link.label}
             </Link>
           ))}
           <a
             href="tel:0826888198"
-            className="ml-2 inline-flex items-center justify-center rounded-full border border-gold-400 px-5 py-2.5 text-sm font-medium text-charcoal-900 hover:bg-gold-400 hover:text-ivory-50 transition-colors"
+            className="ml-2 inline-flex items-center justify-center rounded-full border border-gold-400 px-5 py-2.5 text-sm font-medium text-charcoal-900 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-400 hover:text-ivory-50 active:translate-y-0 active:scale-95 active:bg-gold-400 active:text-ivory-50"
           >
             0826 888 198
           </a>
@@ -74,14 +74,14 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="py-3 text-base text-charcoal-700 hover:text-gold-500 border-b border-ivory-200 last:border-none"
+              className="border-b border-ivory-200 py-3 text-base text-charcoal-700 transition-all duration-200 last:border-none hover:translate-x-1 hover:text-gold-500 active:translate-x-1 active:text-gold-500"
             >
               {link.label}
             </Link>
           ))}
           <a
             href="tel:0826888198"
-            className="mt-3 inline-flex items-center justify-center rounded-full bg-gold-400 px-5 py-3 text-sm font-medium text-ivory-50"
+            className="mt-3 inline-flex items-center justify-center rounded-full bg-gold-400 px-5 py-3 text-sm font-medium text-ivory-50 transition-transform active:scale-95"
           >
             Gọi ngay 0826 888 198
           </a>

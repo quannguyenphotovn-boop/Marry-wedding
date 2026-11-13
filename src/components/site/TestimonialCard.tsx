@@ -6,7 +6,7 @@ export interface TestimonialCardData {
 
 export function TestimonialCard({ testimonial }: { testimonial: TestimonialCardData }) {
   return (
-    <figure className="rounded-xl border border-gold-100 bg-ivory-50 p-8 h-full flex flex-col">
+    <figure className="flex h-full flex-col rounded-xl border border-gold-100 bg-ivory-50 p-8 transition-transform duration-300 hover:-translate-y-1 active:-translate-y-1">
       <div className="flex gap-1 text-gold-400" aria-hidden="true">
         {Array.from({ length: 5 }).map((_, i) => (
           <svg key={i} width="16" height="16" viewBox="0 0 20 20" fill={i < testimonial.rating ? "currentColor" : "none"} stroke="currentColor">

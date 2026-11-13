@@ -19,11 +19,11 @@ export function WordmarkLogo({ variant = "dark", size = "sm" }: WordmarkLogoProp
   return (
     <Link href="/" className="inline-flex flex-col items-start group">
       <span
-        className={`font-serif ${titleSize} tracking-widest2 ${textColor} group-hover:text-gold-400 transition-colors`}
+        className={`font-serif ${titleSize} tracking-widest2 ${textColor} transition-colors group-hover:text-gold-400 group-active:text-gold-400`}
       >
         MARRY WEDDING
       </span>
-      <span className="gold-rule mt-1" />
+      <span className="gold-rule mt-1 origin-left scale-x-100 transition-transform duration-300 group-hover:scale-x-150 group-active:scale-x-150" />
       <span className={`mt-1 text-[10px] uppercase tracking-widest2 ${subColor}`}>
         Luxury Wedding Studio
       </span>

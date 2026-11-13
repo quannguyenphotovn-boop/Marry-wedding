@@ -40,7 +40,7 @@ export function PhotoLightbox({ photos }: { photos: LightboxPhoto[] }) {
               src={photo.imageUrl}
               alt={photo.altText}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
             />
           </button>
         ))}

@@ -32,14 +32,14 @@ export default async function BlogIndexPage() {
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}
-              className="group block overflow-hidden rounded-xl border border-gold-100 bg-ivory-50"
+              className="group block overflow-hidden rounded-xl border border-gold-100 bg-ivory-50 transition-shadow duration-300 hover:shadow-luxury active:shadow-luxury"
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
                   src={post.coverImageUrl}
                   alt={post.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
                 />
               </div>
               <div className="p-6">
@@ -48,7 +48,9 @@ export default async function BlogIndexPage() {
                     {new Intl.DateTimeFormat("vi-VN").format(post.publishedAt)}
                   </time>
                 )}
-                <h3 className="mt-2 font-serif text-xl text-charcoal-900">{post.title}</h3>
+                <h3 className="mt-2 font-serif text-xl text-charcoal-900 transition-colors group-hover:text-gold-600 group-active:text-gold-600">
+                  {post.title}
+                </h3>
                 <p className="mt-2 text-sm text-charcoal-500 line-clamp-2">{post.excerpt}</p>
               </div>
             </Link>

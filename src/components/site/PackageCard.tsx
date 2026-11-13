@@ -12,7 +12,7 @@ export interface PackageCardData {
 export function PackageCard({ pkg }: { pkg: PackageCardData }) {
   return (
     <div
-      className={`flex flex-col rounded-2xl border p-8 h-full ${
+      className={`flex h-full flex-col rounded-2xl border p-8 transition-transform duration-300 hover:-translate-y-1 active:-translate-y-1 ${
         pkg.isFeatured
           ? "border-gold-400 bg-charcoal-900 text-ivory-50 shadow-luxury"
           : "border-gold-100 bg-ivory-50 text-charcoal-900"
