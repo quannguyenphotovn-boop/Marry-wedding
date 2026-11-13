@@ -26,10 +26,14 @@ const SLIDES: Slide[] = [
   {
     src: "/images/real/moment-02.jpg",
     alt: "Cô dâu chú rể trong studio hoa cao cấp",
-    // 68% still clipped the groom's head on wide screens — his head is
-    // too close to the top of this frame to spend any crop budget there.
-    // Back to a near-top anchor: all crop comes from the bottom.
-    position: "object-[center_8%]",
+    // Groom (head ~32% down) is off to the right, clear of the text
+    // block's horizontal column, so his safety only needs modest top
+    // headroom. The bride (face ~52-56% down) sits directly in that
+    // column though, seated lower in frame — too little top-crop pushes
+    // the text zone's mapped range right over her face. 60% balances
+    // both: keeps the groom's head inside the frame with margin, while
+    // moving the text zone's image-range below her face.
+    position: "object-[center_60%]",
   },
   {
     src: "/images/real/moment-01.jpg",
