@@ -10,7 +10,7 @@ export function Hero() {
           alt="Cô dâu chú rể trong bộ ảnh cưới studio của MARRY WEDDING"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-top"
         />
         {/* Photo has a bright studio background — a left-to-right dark
             overlay (rather than the previous bottom-up one) keeps the text
