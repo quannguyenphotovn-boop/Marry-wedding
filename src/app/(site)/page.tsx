@@ -36,7 +36,7 @@ export default async function HomePage() {
   ]);
 
   return (
-    <>
+    <div className="page-enter">
       <Hero />
 
       <section className="py-20 md:py-28">
@@ -139,6 +139,6 @@ export default async function HomePage() {
       </section>
 
       <CtaBanner />
-    </>
+    </div>
   );
 }

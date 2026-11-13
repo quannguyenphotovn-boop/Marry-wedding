@@ -40,7 +40,7 @@ export default async function BlogDetailPage({
   const html = renderMarkdown(post.contentMarkdown);
 
   return (
-    <>
+    <div className="page-enter">
       <article className="py-16 md:py-24">
         <Container className="max-w-3xl">
           {post.publishedAt && (
@@ -65,6 +65,6 @@ export default async function BlogDetailPage({
         </Container>
       </article>
       <CtaBanner />
-    </>
+    </div>
   );
 }

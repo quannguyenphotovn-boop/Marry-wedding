@@ -33,7 +33,7 @@ export default async function ProductsPage({
   const categories = Object.entries(PRODUCT_CATEGORY_LABELS);
 
   return (
-    <>
+    <div key={category ?? "all"} className="page-enter">
       <section className="py-16 md:py-24">
         <Container>
           <SectionHeading
@@ -82,6 +82,6 @@ export default async function ProductsPage({
         </Container>
       </section>
       <CtaBanner />
-    </>
+    </div>
   );
 }

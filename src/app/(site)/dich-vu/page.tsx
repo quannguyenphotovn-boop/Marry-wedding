@@ -20,7 +20,7 @@ export default async function ServicesPage() {
   });
 
   return (
-    <>
+    <div className="page-enter">
       <section className="py-16 md:py-24">
         <Container>
           <SectionHeading
@@ -54,6 +54,6 @@ export default async function ServicesPage() {
       </section>
 
       <CtaBanner />
-    </>
+    </div>
   );
 }

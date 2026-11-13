@@ -19,7 +19,7 @@ export default async function BlogIndexPage() {
   });
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="page-enter py-16 md:py-24">
       <Container>
         <SectionHeading
           kicker="Blog"

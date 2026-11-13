@@ -31,7 +31,7 @@ export default async function GalleryPage({
   const categories = Object.entries(GALLERY_CATEGORY_LABELS);
 
   return (
-    <section className="py-16 md:py-24">
+    <section key={category ?? "all"} className="page-enter py-16 md:py-24">
       <Container>
         <SectionHeading
           kicker="Bộ sưu tập"
