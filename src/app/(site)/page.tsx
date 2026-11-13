@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { PackageCard } from "@/components/site/PackageCard";
 import { ProductCard } from "@/components/site/ProductCard";
 import { AlbumCard } from "@/components/site/AlbumCard";
+import { MomentsShowcase } from "@/components/site/MomentsShowcase";
 import { TestimonialCard } from "@/components/site/TestimonialCard";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Container } from "@/components/ui/Container";
@@ -50,6 +51,19 @@ export default async function HomePage() {
             <LinkButton href="/ve-chung-toi" variant="ghost">
               Tìm hiểu thêm về chúng tôi &rarr;
             </LinkButton>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20 md:py-28">
+        <Container>
+          <SectionHeading
+            kicker="Khoảnh khắc thực tế"
+            title="Những câu chuyện tình yêu đã được MARRY WEDDING ghi lại"
+            description="Một vài khoảnh khắc thật từ các buổi chụp — không phải ảnh minh họa."
+          />
+          <div className="mt-12">
+            <MomentsShowcase />
           </div>
         </Container>
       </section>
