@@ -1,17 +1,11 @@
-import Image from "next/image";
 import { LinkButton } from "@/components/ui/Button";
+import { HeroCarousel } from "./HeroCarousel";
 
 export function Hero() {
   return (
     <section className="relative isolate">
       <div className="relative h-[80vh] min-h-[560px] w-full overflow-hidden">
-        <Image
-          src="/images/real/hero-couple-01.jpg"
-          alt="Cô dâu chú rể trong bộ ảnh cưới studio của MARRY WEDDING"
-          fill
-          priority
-          className="object-cover object-[center_18%]"
-        />
+        <HeroCarousel />
       </div>
 
       {/* Bottom-aligned, not centered: this area of the photo is the
