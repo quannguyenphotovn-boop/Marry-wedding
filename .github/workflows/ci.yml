@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - run: npm run lint
+
+      - name: Build (using a throwaway SQLite DB — no production secrets needed for this check)
+        env:
+          DATABASE_URL: "file:./ci.db"
+          SESSION_SECRET: "ci-build-only-secret-not-used-in-production-00000000"
+          NEXT_PUBLIC_SITE_URL: "http://localhost:3000"
+        run: |
+          npx prisma db push
+          npm run build
+
+  # Deployment to Hostinger is a manual, documented step (see DEPLOY.md) —
+  # intentionally not automated yet, so no SSH credentials need to be stored
+  # as GitHub secrets until you've set up and explicitly want that.
+  #
+  # To enable auto-deploy later (VPS over SSH), uncomment and configure:
+  #
+  # deploy:
+  #   needs: build
+  #   if: github.ref == 'refs/heads/main'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: appleboy/ssh-action@v1
+  #       with:
+  #         host: ${{ secrets.HOSTINGER_SSH_HOST }}
+  #         username: ${{ secrets.HOSTINGER_SSH_USER }}
+  #         key: ${{ secrets.HOSTINGER_SSH_KEY }}
+  #         script: |
+  #           cd /path/to/marry-wedding
+  #           git pull origin main
+  #           npm ci
+  #           npx prisma generate
+  #           npx prisma migrate deploy
+  #           npm run build
+  #           pm2 restart marry-wedding

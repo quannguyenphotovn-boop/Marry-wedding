@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ivory: #fdf8ee;
+  --color-ivory-deep: #f2e4c4;
+  --color-charcoal: #1a1815;
+  --color-charcoal-soft: #2e2b27;
+  --color-gold: #c9a227;
+  --color-gold-soft: #e8d08a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal-soft);
+}
+
+::selection {
+  background-color: var(--color-gold-soft);
+  color: var(--color-charcoal);
+}
+
+.section-kicker {
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.gold-rule {
+  height: 1px;
+  width: 64px;
+  background-color: var(--color-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

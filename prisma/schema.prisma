@@ -1,0 +1,108 @@
+// Prisma schema for MARRY WEDDING
+//
+// Provider is set to "sqlite" for local development in this environment
+// (no MySQL server available here). For Hostinger production, change
+// `provider` below to "mysql" and point DATABASE_URL at the Hostinger
+// MySQL database — see DEPLOY.md. Deliberately no `enum` or native `Json`
+// fields are used (SQLite doesn't support enums, and JSON is stored as a
+// plain String + JSON.stringify/parse in app code) so the same schema
+// works unchanged on both providers.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model GalleryAlbum {
+  id            String         @id @default(cuid())
+  title         String
+  slug          String         @unique
+  category      String // one of: pre_wedding | wedding_day | studio | concept | destination | film
+  coverImageUrl String
+  description   String?
+  isPublished   Boolean        @default(false)
+  sortOrder     Int            @default(0)
+  photos        GalleryPhoto[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model GalleryPhoto {
+  id        String       @id @default(cuid())
+  album     GalleryAlbum @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  albumId   String
+  imageUrl  String
+  altText   String
+  sortOrder Int          @default(0)
+  createdAt DateTime     @default(now())
+}
+
+model BlogPost {
+  id              String    @id @default(cuid())
+  title           String
+  slug            String    @unique
+  excerpt         String
+  contentMarkdown String
+  coverImageUrl   String
+  authorName      String
+  isPublished     Boolean   @default(false)
+  publishedAt     DateTime?
+  metaTitle       String?
+  metaDescription String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model PricingPackage {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  tagline     String?
+  priceFrom   Int // VND
+  priceLabel  String // e.g. "Từ 25.000.000đ"
+  featuresRaw String // JSON.stringify(string[])
+  isFeatured  Boolean  @default(false)
+  isPublished Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String    @id @default(cuid())
+  coupleName  String
+  quote       String
+  avatarUrl   String?
+  weddingDate DateTime?
+  rating      Int       @default(5)
+  isPublished Boolean   @default(true)
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+}
+
+model BookingLead {
+  id              String    @id @default(cuid())
+  fullName        String
+  phone           String
+  email           String?
+  weddingDate     DateTime?
+  packageInterest String?
+  message         String?
+  status          String    @default("new") // new | contacted | converted | archived
+  notified        Boolean   @default(false)
+  ipHash          String?
+  createdAt       DateTime  @default(now())
+}

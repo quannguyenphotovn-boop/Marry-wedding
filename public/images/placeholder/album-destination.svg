@@ -1,0 +1,10 @@
+<svg width="900" height="1125" viewBox="0 0 900 1125" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1125" fill="#f2e4c4"/>
+  <rect x="24" y="24" width="852" height="1077" fill="none" stroke="#c9a227" stroke-width="2"/>
+  <circle cx="450" cy="500" r="120" fill="none" stroke="#e8d08a" stroke-width="2"/>
+  <g font-family="Georgia, serif" text-anchor="middle" fill="#2e2b27">
+    <text x="450" y="505" font-size="26" fill="#8c701a" letter-spacing="2">DESTINATION</text>
+    <text x="450" y="700" font-size="34" letter-spacing="2">Destination Wedding &#273;&#224; L&#7841;t</text>
+    <text x="450" y="745" font-size="18" fill="#54504a">&#7842;nh minh h&#7885;a &#8212; thay &#7843;nh th&#7853;t qua trang qu&#7843;n tr&#7883;</text>
+  </g>
+</svg>
