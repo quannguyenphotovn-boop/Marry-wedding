@@ -6,13 +6,16 @@ export function Hero() {
     <section className="relative isolate">
       <div className="relative h-[80vh] min-h-[560px] w-full overflow-hidden">
         <Image
-          src="/images/placeholder/hero-01.svg"
-          alt="MARRY WEDDING — ảnh cưới cao cấp"
+          src="/images/real/hero-couple-01.jpg"
+          alt="Cô dâu chú rể trong bộ ảnh cưới studio của MARRY WEDDING"
           fill
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/70 via-charcoal-900/20 to-transparent" />
+        {/* Photo has a bright studio background — a left-to-right dark
+            overlay (rather than the previous bottom-up one) keeps the text
+            block, which sits on the left, readable against it. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-900/80 via-charcoal-900/45 to-charcoal-900/10" />
       </div>
 
       <div className="absolute inset-0 flex items-center">
