@@ -26,6 +26,14 @@ const nextConfig = {
   experimental: {
     cpus: 1,
     workerThreads: false,
+    // The real fix: Next.js offloads the server/client/edge webpack
+    // compilations to separate worker processes by default. On this
+    // container, whichever worker loses a startup race ends up with a
+    // resolver missing the tsconfig "paths" alias plugin, so every "@/..."
+    // import in whatever handful of pages that worker compiled fails with
+    // "Module not found" — a different pair of files each time, but
+    // always resolved correctly on a second, single-process compile.
+    webpackBuildWorker: false,
   },
   webpack: (config) => {
     config.cache = false;
