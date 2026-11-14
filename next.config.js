@@ -13,15 +13,24 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  // Hostinger's build container intermittently failed to resolve a handful
-  // of "@/..." aliased imports ("Module not found") even though the same
-  // imports resolve fine elsewhere in the same build and locally — a
-  // classic symptom of a race condition across Next's parallel build
-  // workers. Forcing a single worker trades a little build speed for a
-  // deterministic build on shared/constrained hosting.
+  // Hostinger's build container intermittently fails to resolve a
+  // *different* small set of "@/..." aliased imports on every single
+  // build attempt ("Module not found"), even though every one of those
+  // exact imports resolves fine elsewhere in the same build and every
+  // time locally. Since it's a different file each time, it isn't a
+  // real missing-file bug — it's webpack's resolver cache (and/or its
+  // on-disk persistent cache) returning a stale/incomplete result under
+  // whatever disk or scheduling constraints this container has. Turning
+  // both caches off trades a little build speed for a deterministic
+  // build.
   experimental: {
     cpus: 1,
     workerThreads: false,
+  },
+  webpack: (config) => {
+    config.cache = false;
+    config.resolve.unsafeCache = false;
+    return config;
   },
 };
 
