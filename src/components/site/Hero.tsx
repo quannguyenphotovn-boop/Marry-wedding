@@ -7,13 +7,15 @@ export function Hero() {
       {/* A fixed aspect ratio at every breakpoint, not a viewport-height
           based one: on a narrow tall phone, h-[80vh] made the container
           far narrower (relative to its height) than the source photos
-          are wide, which forced object-cover to crop away most of each
-          photo's width — on a couple standing apart, that showed only
-          the empty gap between them. Stepping the aspect ratio from
-          near-square on phones up to 2:1 on desktop keeps the crop mild
-          (and both subjects in frame) at every size; max-h caps it on
-          short, ultra-wide windows the same way the old lg: step did. */}
-      <div className="relative mx-auto aspect-[4/5] w-full max-w-[1800px] max-h-[800px] overflow-hidden sm:aspect-[3/2] lg:aspect-[2/1]">
+          are wide, which forced object-cover into a severe horizontal
+          crop — on a couple standing apart, that showed only the empty
+          gap between them, neither subject. 3:2 (below lg) sits very
+          close to these photos' own ~3:2 aspect, so the crop needed to
+          cover it stays minor at every width up to tablet; lg switches
+          to 2:1, the wider desktop crop these slides were already tuned
+          for per-photo via their object-position. max-h caps both on
+          short, ultra-wide windows. */}
+      <div className="relative mx-auto aspect-[3/2] w-full max-w-[1800px] max-h-[800px] overflow-hidden lg:aspect-[2/1]">
         <HeroCarousel />
       </div>
 
