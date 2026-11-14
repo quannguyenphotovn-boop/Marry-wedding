@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "prisma db push --skip-generate",
+    "prebuild": "node scripts/clean-next-cache.mjs && prisma db push --skip-generate",
     "build": "next build",
     "postbuild": "node scripts/copy-standalone-assets.mjs",
     "start": "node .next/standalone/server.js",
