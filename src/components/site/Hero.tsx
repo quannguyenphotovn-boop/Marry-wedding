@@ -4,15 +4,16 @@ import { HeroCarousel } from "./HeroCarousel";
 export function Hero() {
   return (
     <section className="relative isolate">
-      {/* Mobile/tablet keep the original 80vh-tall full-bleed sizing. At
-          lg+ the container switches to a fixed aspect-ratio instead of a
-          viewport-height one: a vh-based height combined with an
-          unbounded width let the effective aspect ratio (and therefore
-          the crop) grow without limit on short, ultra-wide windows — that
-          was the root cause of the seated bride ending up hidden behind
-          the text block. aspect-[2/1], capped by max-w and max-h, keeps
-          the crop within a known, safe range on every desktop size. */}
-      <div className="relative mx-auto h-[80vh] min-h-[560px] w-full max-w-[1800px] overflow-hidden lg:h-auto lg:aspect-[2/1] lg:max-h-[800px]">
+      {/* A fixed aspect ratio at every breakpoint, not a viewport-height
+          based one: on a narrow tall phone, h-[80vh] made the container
+          far narrower (relative to its height) than the source photos
+          are wide, which forced object-cover to crop away most of each
+          photo's width — on a couple standing apart, that showed only
+          the empty gap between them. Stepping the aspect ratio from
+          near-square on phones up to 2:1 on desktop keeps the crop mild
+          (and both subjects in frame) at every size; max-h caps it on
+          short, ultra-wide windows the same way the old lg: step did. */}
+      <div className="relative mx-auto aspect-[4/5] w-full max-w-[1800px] max-h-[800px] overflow-hidden sm:aspect-[3/2] lg:aspect-[2/1]">
         <HeroCarousel />
       </div>
 
