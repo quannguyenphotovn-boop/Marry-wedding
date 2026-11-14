@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { WordmarkLogo } from "@/components/site/WordmarkLogo";
+import { WordmarkLogo } from "../../../components/site/WordmarkLogo";
 
 export default function AdminLoginPage() {
   const router = useRouter();

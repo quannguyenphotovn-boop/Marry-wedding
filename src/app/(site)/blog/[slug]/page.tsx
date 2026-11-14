@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { Container } from "@/components/ui/Container";
-import { renderMarkdown } from "@/lib/markdown";
-import { CtaBanner } from "@/components/site/CtaBanner";
+import { prisma } from "../../../../lib/prisma";
+import { Container } from "../../../../components/ui/Container";
+import { renderMarkdown } from "../../../../lib/markdown";
+import { CtaBanner } from "../../../../components/site/CtaBanner";
 
 export const revalidate = 3600;
 
