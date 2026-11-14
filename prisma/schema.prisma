@@ -1,19 +1,19 @@
 // Prisma schema for MARRY WEDDING
 //
-// Provider is set to "sqlite" for local development in this environment
-// (no MySQL server available here). For Hostinger production, change
-// `provider` below to "mysql" and point DATABASE_URL at the Hostinger
-// MySQL database — see DEPLOY.md. Deliberately no `enum` or native `Json`
-// fields are used (SQLite doesn't support enums, and JSON is stored as a
-// plain String + JSON.stringify/parse in app code) so the same schema
-// works unchanged on both providers.
+// Provider is "mysql" to match the production Hostinger MySQL database
+// (see DEPLOY.md). For local development without a MySQL server, change
+// `provider` below to "sqlite" and point DATABASE_URL at a local
+// "file:./dev.db" instead. Deliberately no `enum` or native `Json` fields
+// are used (SQLite doesn't support enums, and JSON is stored as a plain
+// String + JSON.stringify/parse in app code) so this same schema works
+// unchanged on both providers — only this one line needs to change.
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
