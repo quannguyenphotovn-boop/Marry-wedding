@@ -27,6 +27,11 @@ export const loginSchema = z.object({
   password: z.string().min(6, "Mật khẩu tối thiểu 6 ký tự"),
 });
 
+export const changePasswordSchema = z.object({
+  currentPassword: z.string().min(1, "Vui lòng nhập mật khẩu hiện tại"),
+  newPassword: z.string().min(8, "Mật khẩu mới tối thiểu 8 ký tự"),
+});
+
 export const pricingPackageSchema = z.object({
   name: z.string().trim().min(2).max(120),
   slug: z

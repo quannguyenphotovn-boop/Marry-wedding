@@ -60,6 +60,11 @@ const SLIDE_DURATION_MS = 5000;
 
 export function HeroCarousel() {
   const [index, setIndex] = useState(0);
+  // Increments on every slide change, even when it wraps back to the same
+  // slide index — used as the zoom wrapper's `key` so the scale animation
+  // restarts from 1 each time a slide becomes active again, instead of
+  // staying stuck at its final scale from the previous cycle.
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -67,23 +72,30 @@ export function HeroCarousel() {
 
     const timer = setInterval(() => {
       setIndex((i) => (i + 1) % SLIDES.length);
+      setTick((t) => t + 1);
     }, SLIDE_DURATION_MS);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0 overflow-hidden">
       {SLIDES.map((slide, i) => (
-        <Image
+        <div
           key={slide.src}
-          src={slide.src}
-          alt={slide.alt}
-          fill
-          priority={i === 0}
-          className={`object-cover ${slide.position} transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             i === index ? "opacity-100" : "opacity-0"
           }`}
-        />
+        >
+          <div key={i === index ? tick : "idle"} className={i === index ? "absolute inset-0 animate-hero-zoom" : "absolute inset-0"}>
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              priority={i === 0}
+              className={`object-cover ${slide.position}`}
+            />
+          </div>
+        </div>
       ))}
     </div>
   );

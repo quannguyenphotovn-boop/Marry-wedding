@@ -57,6 +57,21 @@ body {
   animation: page-enter 0.6s ease-out both;
 }
 
+/* Slow zoom-in on the active hero slide while it's showing, so the image
+   has visibly grown bigger by the moment it crossfades to the next one. */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom 5000ms ease-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

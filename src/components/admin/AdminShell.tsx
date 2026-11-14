@@ -10,6 +10,7 @@ const NAV = [
   { href: "/admin/blog", label: "Blog" },
   { href: "/admin/pricing", label: "Bảng giá" },
   { href: "/admin/testimonials", label: "Đánh giá khách hàng" },
+  { href: "/admin/doi-mat-khau", label: "Đổi mật khẩu" },
 ];
 
 export function AdminShell({
