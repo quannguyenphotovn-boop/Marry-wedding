@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { prisma } from "@/lib/prisma";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { PackageCard } from "@/components/site/PackageCard";
-import { CtaBanner } from "@/components/site/CtaBanner";
+import { prisma } from "../../../lib/prisma";
+import { Container } from "../../../components/ui/Container";
+import { SectionHeading } from "../../../components/site/SectionHeading";
+import { PackageCard } from "../../../components/site/PackageCard";
+import { CtaBanner } from "../../../components/site/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Dịch vụ & Bảng giá",

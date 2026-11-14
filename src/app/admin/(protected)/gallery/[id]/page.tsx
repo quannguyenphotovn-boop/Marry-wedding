@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { prisma } from "@/lib/prisma";
-import { updateAlbum, addPhoto, deletePhoto } from "@/actions/gallery";
-import { AlbumForm } from "@/components/admin/AlbumForm";
-import { AddPhotoForm } from "@/components/admin/AddPhotoForm";
-import { DeleteButton } from "@/components/admin/DeleteButton";
+import { prisma } from "../../../../../lib/prisma";
+import { updateAlbum, addPhoto, deletePhoto } from "../../../../../actions/gallery";
+import { AlbumForm } from "../../../../../components/admin/AlbumForm";
+import { AddPhotoForm } from "../../../../../components/admin/AddPhotoForm";
+import { DeleteButton } from "../../../../../components/admin/DeleteButton";
 
 export default async function EditAlbumPage({
   params,

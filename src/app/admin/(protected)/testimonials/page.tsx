@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import { deleteTestimonial } from "@/actions/testimonials";
-import { DeleteButton } from "@/components/admin/DeleteButton";
+import { prisma } from "../../../../lib/prisma";
+import { deleteTestimonial } from "../../../../actions/testimonials";
+import { DeleteButton } from "../../../../components/admin/DeleteButton";
 
 export default async function AdminTestimonialsPage() {
   const testimonials = await prisma.testimonial.findMany({ orderBy: { sortOrder: "asc" } });

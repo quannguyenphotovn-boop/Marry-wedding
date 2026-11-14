@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/site/SectionHeading";
+import { prisma } from "../../../lib/prisma";
+import { Container } from "../../../components/ui/Container";
+import { SectionHeading } from "../../../components/site/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Blog cưới",

@@ -1,5 +1,5 @@
-import { createAlbum } from "@/actions/gallery";
-import { AlbumForm } from "@/components/admin/AlbumForm";
+import { createAlbum } from "../../../../../actions/gallery";
+import { AlbumForm } from "../../../../../components/admin/AlbumForm";
 
 export default function NewAlbumPage() {
   return (

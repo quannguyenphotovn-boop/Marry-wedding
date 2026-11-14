@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { prisma } from "@/lib/prisma";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { AlbumCard } from "@/components/site/AlbumCard";
-import { GALLERY_CATEGORY_LABELS } from "@/lib/validation";
+import { prisma } from "../../../lib/prisma";
+import { Container } from "../../../components/ui/Container";
+import { SectionHeading } from "../../../components/site/SectionHeading";
+import { AlbumCard } from "../../../components/site/AlbumCard";
+import { GALLERY_CATEGORY_LABELS } from "../../../lib/validation";
 import Link from "next/link";
 
 export const metadata: Metadata = {

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import { deletePackage } from "@/actions/pricing";
-import { DeleteButton } from "@/components/admin/DeleteButton";
+import { prisma } from "../../../../lib/prisma";
+import { deletePackage } from "../../../../actions/pricing";
+import { DeleteButton } from "../../../../components/admin/DeleteButton";
 
 export default async function AdminPricingPage() {
   const packages = await prisma.pricingPackage.findMany({ orderBy: { sortOrder: "asc" } });

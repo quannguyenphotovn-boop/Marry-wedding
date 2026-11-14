@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GALLERY_CATEGORY_LABELS } from "@/lib/validation";
+import { GALLERY_CATEGORY_LABELS } from "../../lib/validation";
 
 export interface AlbumCardData {
   slug: string;

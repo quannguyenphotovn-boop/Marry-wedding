@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { updateTestimonial } from "@/actions/testimonials";
-import { TestimonialForm } from "@/components/admin/TestimonialForm";
+import { prisma } from "../../../../../lib/prisma";
+import { updateTestimonial } from "../../../../../actions/testimonials";
+import { TestimonialForm } from "../../../../../components/admin/TestimonialForm";
 
 export default async function EditTestimonialPage({
   params,

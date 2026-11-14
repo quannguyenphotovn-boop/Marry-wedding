@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { CtaBanner } from "@/components/site/CtaBanner";
+import { Container } from "../../../components/ui/Container";
+import { SectionHeading } from "../../../components/site/SectionHeading";
+import { CtaBanner } from "../../../components/site/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Giới thiệu",

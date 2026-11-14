@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { prisma } from "@/lib/prisma";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { BookingForm } from "@/components/site/BookingForm";
+import { prisma } from "../../../lib/prisma";
+import { Container } from "../../../components/ui/Container";
+import { SectionHeading } from "../../../components/site/SectionHeading";
+import { BookingForm } from "../../../components/site/BookingForm";
 
 export const metadata: Metadata = {
   title: "Liên hệ & Đặt lịch tư vấn",

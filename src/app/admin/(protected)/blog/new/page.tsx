@@ -1,5 +1,5 @@
-import { createBlogPost } from "@/actions/blog";
-import { BlogPostForm } from "@/components/admin/BlogPostForm";
+import { createBlogPost } from "../../../../../actions/blog";
+import { BlogPostForm } from "../../../../../components/admin/BlogPostForm";
 
 export default function NewBlogPostPage() {
   return (

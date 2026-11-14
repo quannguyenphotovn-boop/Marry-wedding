@@ -2,9 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { getSession } from "@/lib/auth";
-import { pricingPackageSchema } from "@/lib/validation";
+import { prisma } from "../lib/prisma";
+import { getSession } from "../lib/auth";
+import { pricingPackageSchema } from "../lib/validation";
 
 function parseFeatures(raw: string): string[] {
   return raw

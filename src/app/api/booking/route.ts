@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
-import { bookingSchema } from "@/lib/validation";
-import { sendBookingNotification } from "@/lib/mailer";
-import { getClientIp, hashIp, isBookingRateLimited } from "@/lib/rate-limit";
+import { prisma } from "../../../lib/prisma";
+import { bookingSchema } from "../../../lib/validation";
+import { sendBookingNotification } from "../../../lib/mailer";
+import { getClientIp, hashIp, isBookingRateLimited } from "../../../lib/rate-limit";
 
 export async function POST(request: Request) {
   let body: unknown;

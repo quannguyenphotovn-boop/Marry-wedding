@@ -1,4 +1,4 @@
-import { LinkButton } from "@/components/ui/Button";
+import { LinkButton } from "../ui/Button";
 import { HeroCarousel } from "./HeroCarousel";
 
 export function Hero() {

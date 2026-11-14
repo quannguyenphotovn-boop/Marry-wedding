@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { prisma } from "@/lib/prisma";
-import { deleteAlbum } from "@/actions/gallery";
-import { DeleteButton } from "@/components/admin/DeleteButton";
-import { GALLERY_CATEGORY_LABELS } from "@/lib/validation";
+import { prisma } from "../../../../lib/prisma";
+import { deleteAlbum } from "../../../../actions/gallery";
+import { DeleteButton } from "../../../../components/admin/DeleteButton";
+import { GALLERY_CATEGORY_LABELS } from "../../../../lib/validation";
 
 export default async function AdminGalleryPage() {
   const albums = await prisma.galleryAlbum.findMany({

@@ -1,5 +1,5 @@
-import { createPackage } from "@/actions/pricing";
-import { PackageForm } from "@/components/admin/PackageForm";
+import { createPackage } from "../../../../../actions/pricing";
+import { PackageForm } from "../../../../../components/admin/PackageForm";
 
 export default function NewPackagePage() {
   return (

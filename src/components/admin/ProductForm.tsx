@@ -1,4 +1,4 @@
-import { PRODUCT_CATEGORY_LABELS } from "@/lib/validation";
+import { PRODUCT_CATEGORY_LABELS } from "../../lib/validation";
 import { ImageUploader } from "./ImageUploader";
 
 export interface ProductFormValues {

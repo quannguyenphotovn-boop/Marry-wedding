@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
-import { getSession } from "@/lib/auth";
+import { getSession } from "../../../../lib/auth";
 
 const ALLOWED_TYPES: Record<string, string> = {
   "image/jpeg": "jpg",

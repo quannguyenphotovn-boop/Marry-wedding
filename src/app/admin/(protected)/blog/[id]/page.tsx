@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { updateBlogPost } from "@/actions/blog";
-import { BlogPostForm } from "@/components/admin/BlogPostForm";
+import { prisma } from "../../../../../lib/prisma";
+import { updateBlogPost } from "../../../../../actions/blog";
+import { BlogPostForm } from "../../../../../components/admin/BlogPostForm";
 
 export default async function EditBlogPostPage({
   params,

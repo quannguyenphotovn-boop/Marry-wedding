@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import { deleteBlogPost } from "@/actions/blog";
-import { DeleteButton } from "@/components/admin/DeleteButton";
+import { prisma } from "../../../../lib/prisma";
+import { deleteBlogPost } from "../../../../actions/blog";
+import { DeleteButton } from "../../../../components/admin/DeleteButton";
 
 export default async function AdminBlogPage() {
   const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" } });

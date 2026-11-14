@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { updateProduct } from "@/actions/products";
-import { ProductForm } from "@/components/admin/ProductForm";
+import { prisma } from "../../../../../lib/prisma";
+import { updateProduct } from "../../../../../actions/products";
+import { ProductForm } from "../../../../../components/admin/ProductForm";
 
 export default async function EditProductPage({
   params,

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { prisma } from "@/lib/prisma";
-import { deleteProduct } from "@/actions/products";
-import { DeleteButton } from "@/components/admin/DeleteButton";
-import { PRODUCT_CATEGORY_LABELS } from "@/lib/validation";
+import { prisma } from "../../../../lib/prisma";
+import { deleteProduct } from "../../../../actions/products";
+import { DeleteButton } from "../../../../components/admin/DeleteButton";
+import { PRODUCT_CATEGORY_LABELS } from "../../../../lib/validation";
 
 export default async function AdminProductsPage() {
   const products = await prisma.product.findMany({ orderBy: { sortOrder: "asc" } });

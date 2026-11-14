@@ -1,5 +1,5 @@
-import { createTestimonial } from "@/actions/testimonials";
-import { TestimonialForm } from "@/components/admin/TestimonialForm";
+import { createTestimonial } from "../../../../../actions/testimonials";
+import { TestimonialForm } from "../../../../../components/admin/TestimonialForm";
 
 export default function NewTestimonialPage() {
   return (

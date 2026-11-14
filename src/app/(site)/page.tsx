@@ -1,14 +1,14 @@
-import { prisma } from "@/lib/prisma";
-import { Hero } from "@/components/site/Hero";
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { PackageCard } from "@/components/site/PackageCard";
-import { ProductCard } from "@/components/site/ProductCard";
-import { AlbumCard } from "@/components/site/AlbumCard";
-import { MomentsShowcase } from "@/components/site/MomentsShowcase";
-import { TestimonialCard } from "@/components/site/TestimonialCard";
-import { CtaBanner } from "@/components/site/CtaBanner";
-import { Container } from "@/components/ui/Container";
-import { LinkButton } from "@/components/ui/Button";
+import { prisma } from "../../lib/prisma";
+import { Hero } from "../../components/site/Hero";
+import { SectionHeading } from "../../components/site/SectionHeading";
+import { PackageCard } from "../../components/site/PackageCard";
+import { ProductCard } from "../../components/site/ProductCard";
+import { AlbumCard } from "../../components/site/AlbumCard";
+import { MomentsShowcase } from "../../components/site/MomentsShowcase";
+import { TestimonialCard } from "../../components/site/TestimonialCard";
+import { CtaBanner } from "../../components/site/CtaBanner";
+import { Container } from "../../components/ui/Container";
+import { LinkButton } from "../../components/ui/Button";
 
 export const revalidate = 3600;
 

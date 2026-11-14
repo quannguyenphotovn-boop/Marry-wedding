@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { PhotoLightbox } from "@/components/site/PhotoLightbox";
-import { GALLERY_CATEGORY_LABELS } from "@/lib/validation";
-import { CtaBanner } from "@/components/site/CtaBanner";
+import { prisma } from "../../../../lib/prisma";
+import { Container } from "../../../../components/ui/Container";
+import { SectionHeading } from "../../../../components/site/SectionHeading";
+import { PhotoLightbox } from "../../../../components/site/PhotoLightbox";
+import { GALLERY_CATEGORY_LABELS } from "../../../../lib/validation";
+import { CtaBanner } from "../../../../components/site/CtaBanner";
 
 export const revalidate = 3600;
 

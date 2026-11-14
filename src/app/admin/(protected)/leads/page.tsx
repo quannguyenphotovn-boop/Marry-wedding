@@ -1,5 +1,5 @@
-import { prisma } from "@/lib/prisma";
-import { LeadStatusSelect } from "@/components/admin/LeadStatusSelect";
+import { prisma } from "../../../../lib/prisma";
+import { LeadStatusSelect } from "../../../../components/admin/LeadStatusSelect";
 
 export default async function AdminLeadsPage() {
   const leads = await prisma.bookingLead.findMany({ orderBy: { createdAt: "desc" } });

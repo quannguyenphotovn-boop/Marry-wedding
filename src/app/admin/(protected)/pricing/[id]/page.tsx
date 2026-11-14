@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { updatePackage } from "@/actions/pricing";
-import { PackageForm } from "@/components/admin/PackageForm";
+import { prisma } from "../../../../../lib/prisma";
+import { updatePackage } from "../../../../../actions/pricing";
+import { PackageForm } from "../../../../../components/admin/PackageForm";
 
 export default async function EditPackagePage({
   params,

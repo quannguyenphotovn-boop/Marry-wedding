@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PRODUCT_CATEGORY_LABELS } from "@/lib/validation";
+import { PRODUCT_CATEGORY_LABELS } from "../../lib/validation";
 
 export interface ProductCardData {
   name: string;

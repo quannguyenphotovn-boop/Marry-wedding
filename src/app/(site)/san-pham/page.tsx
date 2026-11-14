@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { ProductCard } from "@/components/site/ProductCard";
-import { PRODUCT_CATEGORY_LABELS } from "@/lib/validation";
-import { CtaBanner } from "@/components/site/CtaBanner";
+import { prisma } from "../../../lib/prisma";
+import { Container } from "../../../components/ui/Container";
+import { SectionHeading } from "../../../components/site/SectionHeading";
+import { ProductCard } from "../../../components/site/ProductCard";
+import { PRODUCT_CATEGORY_LABELS } from "../../../lib/validation";
+import { CtaBanner } from "../../../components/site/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Sản phẩm",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { updateLeadStatus } from "@/actions/leads";
+import { updateLeadStatus } from "../../actions/leads";
 
 const STATUS_LABELS: Record<string, string> = {
   new: "Mới",

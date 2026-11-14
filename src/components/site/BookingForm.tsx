@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "../ui/Button";
 
 interface PackageOption {
   slug: string;

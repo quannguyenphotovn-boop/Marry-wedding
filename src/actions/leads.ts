@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { prisma } from "@/lib/prisma";
-import { getSession } from "@/lib/auth";
+import { prisma } from "../lib/prisma";
+import { getSession } from "../lib/auth";
 
 const VALID_STATUSES = ["new", "contacted", "converted", "archived"];
 
