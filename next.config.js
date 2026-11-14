@@ -13,6 +13,16 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
+  // Hostinger's build container intermittently failed to resolve a handful
+  // of "@/..." aliased imports ("Module not found") even though the same
+  // imports resolve fine elsewhere in the same build and locally — a
+  // classic symptom of a race condition across Next's parallel build
+  // workers. Forcing a single worker trades a little build speed for a
+  // deterministic build on shared/constrained hosting.
+  experimental: {
+    cpus: 1,
+    workerThreads: false,
+  },
 };
 
 module.exports = nextConfig;
