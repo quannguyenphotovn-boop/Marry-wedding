@@ -32,7 +32,7 @@ model GalleryAlbum {
   slug          String         @unique
   category      String // one of: pre_wedding | wedding_day | studio | concept | destination | film
   coverImageUrl String
-  description   String?
+  description   String?        @db.Text
   isPublished   Boolean        @default(false)
   sortOrder     Int            @default(0)
   photos        GalleryPhoto[]
@@ -54,8 +54,8 @@ model BlogPost {
   id              String    @id @default(cuid())
   title           String
   slug            String    @unique
-  excerpt         String
-  contentMarkdown String
+  excerpt         String    @db.Text
+  contentMarkdown String    @db.Text
   coverImageUrl   String
   authorName      String
   isPublished     Boolean   @default(false)
@@ -73,7 +73,7 @@ model PricingPackage {
   tagline     String?
   priceFrom   Int // VND
   priceLabel  String // e.g. "Từ 25.000.000đ"
-  featuresRaw String // JSON.stringify(string[])
+  featuresRaw String   @db.Text // JSON.stringify(string[])
   isFeatured  Boolean  @default(false)
   isPublished Boolean  @default(true)
   sortOrder   Int      @default(0)
@@ -86,7 +86,7 @@ model Product {
   name          String
   slug          String   @unique
   category      String // one of: album | in-anh | khung-anh | usb-qua-tang | khac
-  description   String?
+  description   String?  @db.Text
   priceLabel    String // e.g. "Từ 1.200.000đ"
   coverImageUrl String
   isFeatured    Boolean  @default(false)
@@ -99,7 +99,7 @@ model Product {
 model Testimonial {
   id          String    @id @default(cuid())
   coupleName  String
-  quote       String
+  quote       String    @db.Text
   avatarUrl   String?
   weddingDate DateTime?
   rating      Int       @default(5)
@@ -115,7 +115,7 @@ model BookingLead {
   email           String?
   weddingDate     DateTime?
   packageInterest String?
-  message         String?
+  message         String?   @db.Text
   status          String    @default("new") // new | contacted | converted | archived
   notified        Boolean   @default(false)
   ipHash          String?
