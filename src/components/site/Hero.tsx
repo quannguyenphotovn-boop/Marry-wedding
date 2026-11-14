@@ -9,13 +9,18 @@ export function Hero() {
           far narrower (relative to its height) than the source photos
           are wide, which forced object-cover into a severe horizontal
           crop — on a couple standing apart, that showed only the empty
-          gap between them, neither subject. 3:2 (below lg) sits very
-          close to these photos' own ~3:2 aspect, so the crop needed to
-          cover it stays minor at every width up to tablet; lg switches
-          to 2:1, the wider desktop crop these slides were already tuned
-          for per-photo via their object-position. max-h caps both on
-          short, ultra-wide windows. */}
-      <div className="relative mx-auto aspect-[3/2] w-full max-w-[1800px] max-h-[800px] overflow-hidden lg:aspect-[2/1]">
+          gap between them, neither subject. A near-square ratio on
+          phones keeps that crop mild (~30%, vs. ~47-60% at 4:5 or
+          taller) while staying tall enough that the text block below
+          doesn't cover most of the visible photo — 3:2 matched these
+          photos' own aspect almost exactly but was short enough that
+          the text overlay hid whatever wasn't in its top third. sm:
+          moves to the exact 3:2 match once there's width to spare for
+          both the photo and the text without the two competing for the
+          same space; lg is the wider 2:1 desktop crop these slides were
+          already tuned for per-photo via their object-position. max-h
+          caps all three on short, ultra-wide windows. */}
+      <div className="relative mx-auto aspect-square w-full max-w-[1800px] max-h-[800px] overflow-hidden sm:aspect-[3/2] lg:aspect-[2/1]">
         <HeroCarousel />
       </div>
 
