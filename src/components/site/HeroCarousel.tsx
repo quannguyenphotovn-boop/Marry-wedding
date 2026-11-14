@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Slide {
   src: string;
@@ -60,11 +60,7 @@ const SLIDE_DURATION_MS = 5000;
 
 export function HeroCarousel() {
   const [index, setIndex] = useState(0);
-  // Increments on every slide change, even when it wraps back to the same
-  // slide index — used as the zoom wrapper's `key` so the scale animation
-  // restarts from 1 each time a slide becomes active again, instead of
-  // staying stuck at its final scale from the previous cycle.
-  const [tick, setTick] = useState(0);
+  const zoomRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -72,10 +68,21 @@ export function HeroCarousel() {
 
     const timer = setInterval(() => {
       setIndex((i) => (i + 1) % SLIDES.length);
-      setTick((t) => t + 1);
     }, SLIDE_DURATION_MS);
     return () => clearInterval(timer);
   }, []);
+
+  // Restarts the zoom animation on the newly-active slide by toggling its
+  // class with a forced reflow in between — NOT by changing a React `key`,
+  // which would unmount and remount the <Image> underneath it and caused a
+  // visible blank flash on every slide change.
+  useEffect(() => {
+    const el = zoomRefs.current[index];
+    if (!el) return;
+    el.classList.remove("animate-hero-zoom");
+    void el.offsetWidth;
+    el.classList.add("animate-hero-zoom");
+  }, [index]);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -86,7 +93,12 @@ export function HeroCarousel() {
             i === index ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div key={i === index ? tick : "idle"} className={i === index ? "absolute inset-0 animate-hero-zoom" : "absolute inset-0"}>
+          <div
+            ref={(el) => {
+              zoomRefs.current[i] = el;
+            }}
+            className="absolute inset-0"
+          >
             <Image
               src={slide.src}
               alt={slide.alt}
